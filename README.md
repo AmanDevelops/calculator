@@ -1,4 +1,4 @@
-# calc
+# Simple Calculator
 School Project :- 
 This is A School Project Created by Aman Pal
 
