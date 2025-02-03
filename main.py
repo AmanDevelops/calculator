@@ -4,14 +4,10 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5 import uic
 import sys
-from scientefic import Scientefic
-from simple import Simple
-from currency import Currency
+from utils.scientefic import Scientefic
+from utils.simple import Simple
+from utils.currency import Currency
 
-
-
-
-#code = compile("4 / 3 * math.pi * math.pow(25, 3)", "<string>", "eval")
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
