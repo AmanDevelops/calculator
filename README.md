@@ -1,17 +1,37 @@
-# Simple Calculator
-School Project :- 
-This is A School Project Created by Aman Pal
+# 🖩 Simple Calculator
+The Simple Calculator is a versatile and functional application built using the PyQt5 module. It offers both basic and scientific arithmetic operations, as well as a currency converter feature. The interface is designed to be user-friendly and intuitive, making it accessible for users of all skill levels.
 
-1. Extract The Files in seprate folder
-2. Run the command ' pip install PyQt5 '
-3. then run main.py
+### 🛠️ Installation
 
-Module Used :
+1. Download and extract the zip file or clone the repository using the following command.
 
-https://pypi.org/project/PyQt5/
+    ```bash
+    git clone https://github.com/AmanDevelops/calculator.git
+    ```
+
+2. In the project root directory run the command to create a virtual environment, and setup the project.
+
+    ```bash
+    python -m venv venv
+    ```
+3. Once the virtual environment is created. install the required dependencies using
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. Once setup is complete, simply run the `main.py` file to start using the the calculator.
+
+    ```bash
+    python main.py
+    ```
+    
+## 📦Module Used
+
+- [PyQt5](https://pypi.org/project/PyQt5/)
+- [requests](https://pypi.org/project/requests/)
 
 
-The Project:-
+## 📸 Screenshots
 
 1.
 
@@ -32,3 +52,8 @@ The Project:-
 5.
 
 ![currency](https://user-images.githubusercontent.com/82009045/138734153-76aaba8c-8866-4a10-bd1f-7f769a899aa2.JPG)
+
+### Contributers 
+- [AmanDevelops](https://github.com/AmanDevelops)
+- [Azizul Hasan]()
+- [Arpit Kumar]()
