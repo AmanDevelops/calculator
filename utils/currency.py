@@ -1,12 +1,11 @@
-from PyQt5.QtWidgets import *
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
-from PyQt5 import uic
-import sys
-import requests
 import json
+import sys
 
+import requests
+from PyQt5 import QtCore, QtGui, QtWidgets, uic
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
 
 
 class Currency(QDialog):
@@ -18,23 +17,23 @@ class Currency(QDialog):
         self.label.setObjectName("label")
         self.comboBox = QtWidgets.QComboBox(Dialog)
         self.comboBox.setGeometry(QtCore.QRect(20, 60, 271, 41))
-        self.comboBox.setStyleSheet("font: 16pt \"MS Shell Dlg 2\";")
+        self.comboBox.setStyleSheet('font: 16pt "MS Shell Dlg 2";')
         self.comboBox.setObjectName("comboBox")
         self.lineEdit = QtWidgets.QLineEdit(Dialog)
         self.lineEdit.setGeometry(QtCore.QRect(310, 60, 211, 41))
-        self.lineEdit.setStyleSheet("font: 22pt \"MS Shell Dlg 2\";")
+        self.lineEdit.setStyleSheet('font: 22pt "MS Shell Dlg 2";')
         self.lineEdit.setObjectName("lineEdit")
         self.pushButton = QtWidgets.QPushButton(Dialog)
         self.pushButton.setGeometry(QtCore.QRect(350, 120, 121, 41))
-        self.pushButton.setStyleSheet("font: 22pt \"MS Shell Dlg 2\";")
+        self.pushButton.setStyleSheet('font: 22pt "MS Shell Dlg 2";')
         self.pushButton.setObjectName("pushButton")
         self.lineEdit_2 = QtWidgets.QLineEdit(Dialog)
         self.lineEdit_2.setGeometry(QtCore.QRect(140, 180, 251, 41))
-        self.lineEdit_2.setStyleSheet("font: 22pt \"MS Shell Dlg 2\";")
+        self.lineEdit_2.setStyleSheet('font: 22pt "MS Shell Dlg 2";')
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.comboBox_2 = QtWidgets.QComboBox(Dialog)
         self.comboBox_2.setGeometry(QtCore.QRect(20, 120, 271, 41))
-        self.comboBox_2.setStyleSheet("font: 16pt \"MS Shell Dlg 2\";")
+        self.comboBox_2.setStyleSheet('font: 16pt "MS Shell Dlg 2";')
         self.comboBox_2.setObjectName("comboBox_2")
 
         self.retranslateUi(Dialog)
@@ -45,25 +44,137 @@ class Currency(QDialog):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.label.setText(_translate("Dialog", "Arpit, Aman, Azizul"))
         self.pushButton.setText(_translate("Dialog", "Convert"))
+
     def __init__(self):
         super().__init__()
 
-        #uic.loadUi("currency.ui", self)
+        # uic.loadUi("currency.ui", self)
         Dialog = QtWidgets.QDialog()
 
         self.setupUi(self)
         self.retranslateUi(self)
 
-        currency_list = ['AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BAM', 'BBD', 'BDT',
-                         'BGN', 'BHD', 'BND', 'BOB', 'BRL', 'BSD', 'BTN', 'BWP', 'BZD', 'CAD', 'CHF', 'CLP', 'CNY',
-                         'COP', 'CRC', 'CZK', 'DKK', 'DOP', 'DZD', 'EGP', 'ETB', 'EUR', 'FJD', 'GBP', 'GEL', 'GHS',
-                         'GMD', 'GTQ', 'GYD', 'HKD', 'HNL', 'HRK', 'HUF', 'IDR', 'ILS', 'INR', 'ISK', 'JEP', 'JMD',
-                         'JOD', 'JPY', 'KES', 'KGS', 'KHR', 'KRW', 'KWD', 'KYD', 'KZT', 'LBP', 'LKR', 'MAD', 'MDL',
-                         'MGA', 'MKD', 'MMK', 'MNT', 'MOP', 'MUR', 'MVR', 'MXN', 'MYR', 'MZN', 'NAD', 'NGN', 'NIO',
-                         'NOK', 'NPR', 'NZD', 'OMR', 'PEN', 'PGK', 'PHP', 'PKR', 'PLN', 'PYG', 'QAR', 'RON', 'RSD',
-                         'RUB', 'RWF', 'SAR', 'SCR', 'SEK', 'SGD', 'STD', 'SYP', 'THB', 'TND', 'TRY', 'TTD', 'TWD',
-                         'TZS', 'UAH', 'UGX', 'USD', 'UYU', 'VEF', 'VND', 'VUV', 'WST', 'XAF', 'XCD', 'XOF', 'XPF',
-                         'ZAR', 'ZMW']
+        currency_list = [
+            "AED",
+            "AFN",
+            "ALL",
+            "AMD",
+            "ANG",
+            "AOA",
+            "ARS",
+            "AUD",
+            "AWG",
+            "AZN",
+            "BAM",
+            "BBD",
+            "BDT",
+            "BGN",
+            "BHD",
+            "BND",
+            "BOB",
+            "BRL",
+            "BSD",
+            "BTN",
+            "BWP",
+            "BZD",
+            "CAD",
+            "CHF",
+            "CLP",
+            "CNY",
+            "COP",
+            "CRC",
+            "CZK",
+            "DKK",
+            "DOP",
+            "DZD",
+            "EGP",
+            "ETB",
+            "EUR",
+            "FJD",
+            "GBP",
+            "GEL",
+            "GHS",
+            "GMD",
+            "GTQ",
+            "GYD",
+            "HKD",
+            "HNL",
+            "HRK",
+            "HUF",
+            "IDR",
+            "ILS",
+            "INR",
+            "ISK",
+            "JEP",
+            "JMD",
+            "JOD",
+            "JPY",
+            "KES",
+            "KGS",
+            "KHR",
+            "KRW",
+            "KWD",
+            "KYD",
+            "KZT",
+            "LBP",
+            "LKR",
+            "MAD",
+            "MDL",
+            "MGA",
+            "MKD",
+            "MMK",
+            "MNT",
+            "MOP",
+            "MUR",
+            "MVR",
+            "MXN",
+            "MYR",
+            "MZN",
+            "NAD",
+            "NGN",
+            "NIO",
+            "NOK",
+            "NPR",
+            "NZD",
+            "OMR",
+            "PEN",
+            "PGK",
+            "PHP",
+            "PKR",
+            "PLN",
+            "PYG",
+            "QAR",
+            "RON",
+            "RSD",
+            "RUB",
+            "RWF",
+            "SAR",
+            "SCR",
+            "SEK",
+            "SGD",
+            "STD",
+            "SYP",
+            "THB",
+            "TND",
+            "TRY",
+            "TTD",
+            "TWD",
+            "TZS",
+            "UAH",
+            "UGX",
+            "USD",
+            "UYU",
+            "VEF",
+            "VND",
+            "VUV",
+            "WST",
+            "XAF",
+            "XCD",
+            "XOF",
+            "XPF",
+            "ZAR",
+            "ZMW",
+        ]
         currency_name = {
             "AED": "United Arab Emirates Dirham",
             "AFN": "Afghan Afghani",
@@ -235,7 +346,7 @@ class Currency(QDialog):
             "YER": "Yemeni Rial",
             "ZAR": "South African Rand",
             "ZMW": "Zambian Kwacha",
-            "ZWL": "Zimbabwean Dollar"
+            "ZWL": "Zimbabwean Dollar",
         }
         for x in currency_list:
             self.comboBox.addItem(currency_name[x])
@@ -244,28 +355,147 @@ class Currency(QDialog):
         self.pushButton.clicked.connect(self.convert)
 
         self.show()
+
     def convert(self):
-        currency_list = ['AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BAM', 'BBD', 'BDT',
-                         'BGN', 'BHD', 'BND', 'BOB', 'BRL', 'BSD', 'BTN', 'BWP', 'BZD', 'CAD', 'CHF', 'CLP', 'CNY',
-                         'COP', 'CRC', 'CZK', 'DKK', 'DOP', 'DZD', 'EGP', 'ETB', 'EUR', 'FJD', 'GBP', 'GEL', 'GHS',
-                         'GMD', 'GTQ', 'GYD', 'HKD', 'HNL', 'HRK', 'HUF', 'IDR', 'ILS', 'INR', 'ISK', 'JEP', 'JMD',
-                         'JOD', 'JPY', 'KES', 'KGS', 'KHR', 'KRW', 'KWD', 'KYD', 'KZT', 'LBP', 'LKR', 'MAD', 'MDL',
-                         'MGA', 'MKD', 'MMK', 'MNT', 'MOP', 'MUR', 'MVR', 'MXN', 'MYR', 'MZN', 'NAD', 'NGN', 'NIO',
-                         'NOK', 'NPR', 'NZD', 'OMR', 'PEN', 'PGK', 'PHP', 'PKR', 'PLN', 'PYG', 'QAR', 'RON', 'RSD',
-                         'RUB', 'RWF', 'SAR', 'SCR', 'SEK', 'SGD', 'STD', 'SYP', 'THB', 'TND', 'TRY', 'TTD', 'TWD',
-                         'TZS', 'UAH', 'UGX', 'USD', 'UYU', 'VEF', 'VND', 'VUV', 'WST', 'XAF', 'XCD', 'XOF', 'XPF',
-                         'ZAR', 'ZMW']
+        currency_list = [
+            "AED",
+            "AFN",
+            "ALL",
+            "AMD",
+            "ANG",
+            "AOA",
+            "ARS",
+            "AUD",
+            "AWG",
+            "AZN",
+            "BAM",
+            "BBD",
+            "BDT",
+            "BGN",
+            "BHD",
+            "BND",
+            "BOB",
+            "BRL",
+            "BSD",
+            "BTN",
+            "BWP",
+            "BZD",
+            "CAD",
+            "CHF",
+            "CLP",
+            "CNY",
+            "COP",
+            "CRC",
+            "CZK",
+            "DKK",
+            "DOP",
+            "DZD",
+            "EGP",
+            "ETB",
+            "EUR",
+            "FJD",
+            "GBP",
+            "GEL",
+            "GHS",
+            "GMD",
+            "GTQ",
+            "GYD",
+            "HKD",
+            "HNL",
+            "HRK",
+            "HUF",
+            "IDR",
+            "ILS",
+            "INR",
+            "ISK",
+            "JEP",
+            "JMD",
+            "JOD",
+            "JPY",
+            "KES",
+            "KGS",
+            "KHR",
+            "KRW",
+            "KWD",
+            "KYD",
+            "KZT",
+            "LBP",
+            "LKR",
+            "MAD",
+            "MDL",
+            "MGA",
+            "MKD",
+            "MMK",
+            "MNT",
+            "MOP",
+            "MUR",
+            "MVR",
+            "MXN",
+            "MYR",
+            "MZN",
+            "NAD",
+            "NGN",
+            "NIO",
+            "NOK",
+            "NPR",
+            "NZD",
+            "OMR",
+            "PEN",
+            "PGK",
+            "PHP",
+            "PKR",
+            "PLN",
+            "PYG",
+            "QAR",
+            "RON",
+            "RSD",
+            "RUB",
+            "RWF",
+            "SAR",
+            "SCR",
+            "SEK",
+            "SGD",
+            "STD",
+            "SYP",
+            "THB",
+            "TND",
+            "TRY",
+            "TTD",
+            "TWD",
+            "TZS",
+            "UAH",
+            "UGX",
+            "USD",
+            "UYU",
+            "VEF",
+            "VND",
+            "VUV",
+            "WST",
+            "XAF",
+            "XCD",
+            "XOF",
+            "XPF",
+            "ZAR",
+            "ZMW",
+        ]
         from_cur = currency_list[self.comboBox.currentIndex()]
 
         to_cur = currency_list[self.comboBox_2.currentIndex()]
 
         amount = self.lineEdit.text()
-        if amount != '':
+        if amount != "":
             try:
-                r = requests.get('https://api.exchangerate.host/latest?base='+from_cur+'&symbols='+to_cur+'&amount='+amount).text
+                r = requests.get(
+                    "https://api.exchangerate.host/latest?base="
+                    + from_cur
+                    + "&symbols="
+                    + to_cur
+                    + "&amount="
+                    + amount
+                ).text
                 res = json.loads(r)
-                self.lineEdit_2.setText(str(res['rates'][to_cur]))
+                self.lineEdit_2.setText(str(res["rates"][to_cur]))
             except:
-                self.lineEdit_2.setText('Could Not Connect To Internet')
+                self.lineEdit_2.setText("Could Not Connect To Internet")
         else:
-            self.lineEdit_2.setText('Please Enter Amount')
+            self.lineEdit_2.setText("Please Enter Amount")

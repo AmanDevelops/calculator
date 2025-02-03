@@ -1,8 +1,9 @@
-# See https://pre-commit.com for more information
-# See https://pre-commit.com/hooks.html for more hooks
 repos:
--   repo: https://github.com/psf/black
-    rev: 21.9b0
+  - repo: https://github.com/psf/black
+    rev: 24.10.0
     hooks:
-    -   id: black
-        args: [--safe]
+      - id: black
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
